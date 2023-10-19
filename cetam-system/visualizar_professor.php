@@ -2,8 +2,6 @@
 
 <?php
 include_once 'config.php';
-//Paginação, número da página
-$paginação = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
 //visualizar professor
 $id = $_GET['id'];
@@ -40,8 +38,8 @@ if (($res) and ($res->rowCount() != 0)) {
     echo "<td>";
     echo "<button onclick=\"location.href='?page=editar_professor&id={$row['id_professor']}'\" class='btn btn-success'>Editar</button>";
 
-    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud_professor&acao=excluir&id={$row['id_professor']}'\" class='btn btn-danger'>Excluir</button>";
-
+    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud_professoro&acao=excluir&id={$row['id_professor']}'}\" class='btn btn-danger'>Excluir</button>";
+           
     echo "</td>";
 
     echo "</tr>";
@@ -74,10 +72,10 @@ ORDER BY disc.dt_inicial DESC';
 $res = $pdo->prepare($sql);
 $res->bindParam(':professor_id', $professor_id, PDO::PARAM_INT);
 $res->execute();
-
+$id_professor=$row['id_professor'];
 if (($res) and ($res->rowCount() != 0)) {
     while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-
+        $id=$row['disc_id'];
         echo "<table class='table table-hover'>";
 
         echo " <thead>";
@@ -104,7 +102,7 @@ if (($res) and ($res->rowCount() != 0)) {
         echo "<td>";
         echo "<button onclick=\"location.href='?page=editar_disciplina&id={$row['disc_id']}'\" class='btn btn-success'>Editar</button>";
 
-        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_disciplina&acao=excluir&id={$row['disc_id']}'\" class='btn btn-danger'>Excluir</button>";
+        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_disciplina&acao=excluir&id={$row['disc_id']}'}else{false;}\" class='btn btn-danger'>Excluir</button>";
 
         echo "</td>";
 

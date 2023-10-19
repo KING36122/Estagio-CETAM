@@ -12,7 +12,6 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
         <title>SIGPRO-CETAM</title>
-
     </head>
 
     <body>
@@ -49,6 +48,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                 case 'logout':
                     require 'logout.php';
                     break;
+
                 case 'cadastro_professor':
                     require 'cadastro-professor.php';
                     break;
@@ -58,9 +58,9 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                 case 'crud_professor':
                     require 'crud-professor.php';
                     break;
-                    case 'editar_professor':
-                        require 'editar-professor.php';
-                        break;
+                case 'editar_professor':
+                    require 'editar-professor.php';
+                    break;
                 case 'turnos':
                     require 'listar-turno.php';
                     break;
@@ -80,14 +80,17 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                     require 'editar-curso.php';
                     break;
                 case 'disciplina':
-                        require 'cadastro-disciplina.php';
-                        break;
-                        case 'editar_disciplina':
-                            require 'editar-disciplina.php';
-                            break;
+                    require 'cadastro-disciplina.php';
+                    break;
+                case 'editar_disciplina':
+                    require 'editar-disciplina.php';
+                    break;
+                case 'salvar_disciplina':
+                    require 'salvar-disciplina.php';
+                    break;
                 default:
             ?>
-  <div>
+                    <div>
 
                         <a href="?page=cadastro_professor"> <button class='btn float-sm-end' style="background-color: #4C5D73; color: white; margin: 10px;">Adicionar Professor</button> </a>
                         <H1>Professores </H1>
@@ -116,7 +119,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
 
                                     echo "<td>";
                                     echo "<button onclick=\"location.href='?page=visualizar_professor&id={$row->id_professor}'\" class='btn btn-success'>Visualizar</button>";
-                                    
+
                                     echo "</td>";
 
                                     echo "</tr>";
