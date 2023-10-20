@@ -1,0 +1,482 @@
+/* Index */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Arvo";
+  background-color: #ebf3ff;
+}
+
+ul,
+nav {
+  list-style: none;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+}
+
+section.index-section {
+  width: 100%;
+  display: inline-block;
+}
+
+tr,
+td {
+  text-align: center;
+  font-size: 25px;
+}
+
+.tableProf {
+  margin: 0 100px 0 100px;
+}
+
+div.index-div-principal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+div.index-div-title {
+  align-content: center;
+  width: 1200px;
+  height: 79px;
+  top: 73px;
+  background: #ebf3ff;
+  box-shadow: -10px -10px 20px #b4c1d5, 10px 10px 20px #b4c1d5;
+  border-radius: 32px;
+  margin-top: 50px;
+}
+
+div.index-div-title-Disc {
+  align-content: center;
+  width: 1200px;
+  height: 60px;
+  background: #ebf3ff;
+  box-shadow: -10px -10px 20px #b4c1d5, 10px 10px 20px #b4c1d5;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+div.index-div-title p {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  color: #000;
+  padding: 15px;
+}
+
+div.index-div-title-Disc p {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 47px;
+  color: #000;
+  padding: 10px;
+}
+
+section div.index-div-second {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section div.index-div-second-bloco {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section div.index-div-module {
+  width: 300px;
+  height: 400px;
+  background: #ebf3ff;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 32px;
+  margin: 30px;
+  transition: transform 0.3s ease;
+}
+
+section div.index-div-module-bloco {
+  width: 300px;
+  height: 500px;
+  background: #ebf3ff;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 32px;
+  margin: 30px;
+  transition: transform 0.3s ease;
+}
+
+section div.index-div-module-salas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 100px;
+  background: #ebf3ff;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 32px;
+  margin: 30px;
+  transition: transform 0.3s ease;
+}
+
+section div.index-div-module:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+section div.index-div-module-bloco:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+section div.index-div-module-salas:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+section div.index-div-img {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.logo {
+  width: 100px;
+}
+
+section div p.index-p-desc {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 35px;
+}
+
+section div p.index-p-desc-bloco {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 15px;
+}
+
+section div.login-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+section div.login-div-box {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 100%;
+  /* top: 100px; */
+  /* background-color: #b4c1d5; */
+  border: 2px solid #000;
+  border-radius: 32px;
+  margin-top: 50px;
+  padding: 100px;
+}
+
+section div.res-div-box {
+  width: 200px;
+  padding: 50px;
+}
+
+section div.login-div-img {
+  width: 300px;
+  height: 100%;
+}
+
+section div.login-div-img img.logo {
+  padding-right: 40px;
+  width: 400px;
+  transition: transform 0.3s ease;
+}
+
+section div.login-div-img img.logo:hover {
+  transform: scale(1.2);
+}
+
+section div.login-div-form {
+  align-items: center;
+  padding-left: 120px;
+  margin-top: 30px;
+  width: 100%;
+  height: 100%;
+  /* background-color: #000; */
+}
+
+section div.res-div-box1 {
+  padding-left: 0px;
+}
+
+section div label.login-label {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+section div label.login-label-a {
+  margin-right: 25px;
+}
+
+section div input.login-input {
+  width: 450px;
+  height: 58px;
+  /* box-shadow: inset -10px -10px 50px #ffffff, inset 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  border: 2px solid #9a9a9a;
+  /* border: 0; */
+  font-size: 30px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+div.op ul li a {
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+div.op ul li a:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+section div button.login-button {
+  /* position: absolute; */
+  width: 350px;
+  height: 79px;
+  background: #1f5574;
+  /* box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  /* border: 2px solid #9a9a9a; */
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 100px;
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+div button.AddProf {
+  float: right;
+  width: 250px;
+  height: 50px;
+  margin: 30px 0 30px 0;
+  background: #1f5574;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+div button.AddProf:hover {
+  transform: scale(1.1);
+  background: #1a4761;
+}
+
+div button.CadProf {
+  width: 250px;
+  height: 50px;
+  margin: 30px 0 30px 0;
+  background: #198754;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+div button.CadProf:hover {
+  transform: scale(1.1);
+  background: #157347;
+}
+
+.formCadastro {
+  margin: 30px 150px 0 150px;
+}
+
+.formCadastroPopup {
+  margin: 10px;
+}
+
+.formCadastro label {
+  font-size: 25px;
+}
+
+.formCadastro input {
+  width: 100%;
+  height: 50px;
+  /* box-shadow: inset -10px -10px 50px #ffffff, inset 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  border: 2px solid #9a9a9a;
+  /* border: 0; */
+  font-size: 30px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.formCadastroPopup input {
+  width: 100%;
+  height: 50px;
+  /* box-shadow: inset -10px -10px 50px #ffffff, inset 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  border: 2px solid #9a9a9a;
+  /* border: 0; */
+  font-size: 30px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.formCadastro input::placeholder {
+  font-size: 20px;
+}
+
+.formCadastro select {
+  width: 100%;
+  height: 50px;
+  /* box-shadow: inset -10px -10px 50px #ffffff, inset 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  border: 2px solid #9a9a9a;
+  /* border: 0; */
+  font-size: 22px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.formCadastroPopup select {
+  width: 100%;
+  height: 50px;
+  /* box-shadow: inset -10px -10px 50px #ffffff, inset 10px 10px 20px #b4c1d5; */
+  border-radius: 12px;
+  border: 2px solid #9a9a9a;
+  /* border: 0; */
+  font-size: 22px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+section div button.login-button:hover {
+  transform: scale(1.1);
+}
+
+section div.res-div-table {
+  justify-content: center;
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section div.res-div-table table {
+  border-collapse: collapse; /* Mescla as bordas das células */
+  border-spacing: 0;
+}
+
+section div.res-div-table th {
+  background-color: rgb(180, 193, 213, 1);
+  width: 250px;
+  font-size: 25px;
+}
+
+section div.res-div-table td {
+  width: 250px;
+  font-size: 25px;
+  text-align: center;
+  background-color: rgb(180, 193, 213, 0.3);
+  padding: 5px;
+}
+
+.floating-button {
+  position: fixed;
+  top: 60px;
+  left: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.floating-button-end {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.floating-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.floating-button-end img {
+  width: 30px;
+  height: 30px;
+}
+
+button.res-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  margin-top: 35px;
+}
+
+button:hover {
+  background-color: #79d8f5;
+  border-color: #3e8e41;
+}
+
+.lista {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
