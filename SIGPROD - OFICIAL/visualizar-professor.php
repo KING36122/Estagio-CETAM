@@ -1,14 +1,7 @@
-<div class="index-div-principal">
-            <div class="index-div-title">
-                <p>Dados Pessoais</p>
-            </div>
-        </div>
-<br><br>
-<div class="tableProf">
+<H1>Dados Pessoais </H1>
+
 <?php
 include_once 'config.php';
-//Paginação, número da página
-$paginação = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 
 //visualizar professor
 $id = $_GET['id'];
@@ -43,10 +36,9 @@ if (($res) and ($res->rowCount() != 0)) {
     echo "<td>" . $row['sobrenome'] . "</td>";
 
     echo "<td>";
-    echo "<button style='margin-right:10px;' onclick=\"location.href='?page=editar-professor&id={$row['id_professor']}'\" class='btn btn-success'>Editar</button>";
+    echo "<button onclick=\"location.href='?page=editar_professor&id={$row['id_professor']}'\" class='btn btn-success'>Editar</button>";
 
-    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud-professor&acao=excluir&id={$row['id_professor']}'\" class='btn btn-danger'>Excluir</button>";
-
+    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud_professor&acao=excluir&id=".$row['id_professor']."'}\" class='btn btn-danger'>Excluir</button>";
     echo "</td>";
 
     echo "</tr>";
@@ -55,17 +47,11 @@ if (($res) and ($res->rowCount() != 0)) {
     echo "<p class='alert alert-danger'>Sem resultados!</p>";
 }
 ?>
-</div>
-<div class="index-div-principal">
-            <div class="index-div-title">
-                <p>Disciplinas Ministradas</p>
-            </div>
-        </div>
-<div class="tableProf">
-<!-- Button trigger modal -->
-<button type="button" class="AddProf" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Adicionar Disciplina
 </button>
+
+<h1>Disciplinas Ministradas</h1>
 <?php
 include_once 'config.php';
 
@@ -85,10 +71,10 @@ ORDER BY disc.dt_inicial DESC';
 $res = $pdo->prepare($sql);
 $res->bindParam(':professor_id', $professor_id, PDO::PARAM_INT);
 $res->execute();
-
+$id_professor=$row['id_professor'];
 if (($res) and ($res->rowCount() != 0)) {
     while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-
+        $id=$row['disc_id'];
         echo "<table class='table table-hover'>";
 
         echo " <thead>";
@@ -113,9 +99,9 @@ if (($res) and ($res->rowCount() != 0)) {
         echo "<td>" . $row['nome_curso'] . "</td>";
         echo "<td>" . $row['projeto'] . "</td>";
         echo "<td>";
-        echo "<button style='margin-right:10px;' onclick=\"location.href='?page=editar-disciplina&id={$row['disc_id']}'\" class='btn btn-success'>Editar</button>";
+        echo "<button onclick=\"location.href='?page=editar_disciplina&id={$row['disc_id']}'\" class='btn btn-success'>Editar</button>";
 
-        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-disciplina&acao=excluir&id={$row['disc_id']}'\" class='btn btn-danger'>Excluir</button>";
+        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_disciplina&acao=excluir&id={$row['disc_id']}'}else{false;}\" class='btn btn-danger'>Excluir</button>";
 
         echo "</td>";
 
@@ -149,9 +135,11 @@ if (($res) and ($res->rowCount() != 0)) {
                 $dados_curso = $res_curso->fetchAll(PDO::FETCH_ASSOC);
                 ?>
 
-                <form action="salvar-disciplina.php" method="post" class="formCadastroPopup">
+                <form action="salvar_disciplina" method="post">
                     <input type="hidden" name="acao" value="cadastrar">
                     <input type="hidden" name="id_professor" value="<?php echo $id_professor; ?>">
+
+                    <h2>Disciplinas Ministradas:</h2>
 
                     <div id="disciplinas">
 
@@ -164,8 +152,11 @@ if (($res) and ($res->rowCount() != 0)) {
                         <label>Data de Fim:</label>
                         <input type="date" name="dt_final" required>
 
+
                         <label">Carga Horária:</label>
                             <input type="text" name="carga_horaria" required>
+
+                            <label for="turno">Turno:</label>
 
                             <label for="turno">Turno:</label>
                             <select name="id_turno" required class="form-control">
@@ -175,6 +166,8 @@ if (($res) and ($res->rowCount() != 0)) {
                                     echo '<option value="' . $id_turno . '">' . $turno . '</option>';
                                 } ?>
                             </select>
+
+                            <br>
 
                             <label for="curso">Curso:</label>
                             <select name="curso_id" required class="form-control">

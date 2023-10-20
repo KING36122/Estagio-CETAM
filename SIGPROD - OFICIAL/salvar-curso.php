@@ -18,14 +18,14 @@ ob_start();
 
                 if ($res == true) {
                     print "<script>alert('Cadastro realizado com sucesso!!!');</script>";
-                    echo "<script>location.href='home.php?page=cursos';</script>";
+                    echo "<script>location.href='?page=cursos';</script>";
                 } else {
                     print "<script>alert('Erro ao realizar cadastro!!!');</script>";
-                    echo "<script>location.href='home.php?page=cursos';</script>";
+                    echo "<script>location.href='?page=cursos';</script>";
                 }
             } else {
                 print "<script>alert('Preencha todos os campos obrigatórios!');</script>";
-                echo "<script>location.href='home.php?page=cursos';</script>";
+                echo "<script>location.href='?page=cursos';</script>";
             }
             break;
 
@@ -34,7 +34,7 @@ ob_start();
            
            $curso_id= filter_input(INPUT_POST, "curso_id", FILTER_SANITIZE_NUMBER_INT);
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            var_dump($curso_id);
+           
 
             if ($curso_id !== false) {
             
@@ -46,12 +46,12 @@ ob_start();
             
                 if ($res->execute()) {
                     print "<script>alert('Alterado com Sucesso')</script>";
-                     print "<script>location.href='home.php?page=cursos';</script>";
+                     print "<script>location.href='?page=cursos';</script>";
                 } else {
                     // Imprima informações de erro para depuração
                     echo "Erro na execução da consulta SQL: ";
                     var_dump($res->errorInfo());
-                    print "<scrip>location.href='home.php?page=cursos';</script>";
+                    print "<scrip>location.href='?page=cursos';</script>";
                 }
             } else {
                 echo "Erro: curso_id não está definido corretamente.";
@@ -62,7 +62,7 @@ ob_start();
             
         case 'excluir':
             $curso_id=filter_input(INPUT_GET,"id",FILTER_SANITIZE_NUMBER_INT);
-            var_dump($curso_id);
+            
             
             $sql = "DELETE FROM curso WHERE curso_id = :curso_id";
             $res = $pdo->prepare($sql);
@@ -70,10 +70,10 @@ ob_start();
         
             if ($res->execute()) {
                 echo "Excluído com sucesso!";
-                header("Location: home.php?page=cursos");
+                header("Location: ?page=cursos");
             } else {
                 echo "<script>alert('Erro ao excluir!');</script>";
-                echo "<script>location.href='home.php?page=cursos';</script>";
+                echo "<script>location.href='?page=cursos';</script>";
             }
 
             break;
