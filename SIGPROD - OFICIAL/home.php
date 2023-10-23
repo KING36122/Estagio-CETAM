@@ -1,6 +1,6 @@
 <?php
     require 'config.php';
-    define("TITULO", "SIGPROD");
+    define("TITULO", "SIGPRO");
 	include "cabecalho.php";
 
 if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
@@ -16,7 +16,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
     <body style="background-color: #ebf3ff;">
         <nav class="navbar navbar-expand-lg navbar-dark barra" style="background-color: #1f5574;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">SIGPROD-CETAM</a>
+                <a class="navbar-brand" href="#">SIGPRO-CETAM</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                         <li class="nav-item"> <a class="nav-link" href="home.php">Início</a></li>
                         <li class="nav-item"> <a class="nav-link" href="home.php?page=turnos">Turnos</a></li>
                         <li class="nav-item"> <a class="nav-link" href="home.php?page=cursos">Cursos</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="home.php?page=cadastro_professor">Adicionar Professor</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="home.php?page=cadastro-professor">Adicionar Professor</a></li>
                         <li class="nav-item"> <a class="nav-link" href="logout.php?page-logout">Sair</a></li>
                     </ul>
                 </div>
@@ -38,49 +38,50 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
             if (isset($_GET['page']) && !empty($_GET['page'])) {
                 $page = addslashes($_GET['page']);
             }
+            
             switch ($page) {
 
                 case 'logout':
                     require 'logout.php';
                     break;
 
-                case 'cadastro_professor':
+                case 'cadastro-professor':
                     require 'cadastro-professor.php';
                     break;
-                case 'visualizar_professor':
+                case 'visualizar-professor':
                     require 'visualizar-professor.php';
                     break;
-                case 'crud_professor':
+                case 'crud-professor':
                     require 'crud-professor.php';
                     break;
-                case 'editar_professor':
+                case 'editar-professor':
                     require 'editar-professor.php';
                     break;
                 case 'turnos':
                     require 'listar-turno.php';
                     break;
-                case 'editar_turno':
+                case 'editar-turno':
                     require 'editar-turno.php';
                     break;
-                case 'salvar_turno':
-                    require 'salvar_turno.php';
+                case 'salvar-turno':
+                    require 'salvar-turno.php';
                     break;
                 case 'cursos':
                     require 'cadastro-curso.php';
                     break;
-                case 'salvar_curso':
+                case 'salvar-curso':
                     require 'salvar-curso.php';
                     break;
-                case 'edt_curso':
+                case 'edt-curso':
                     require 'editar-curso.php';
                     break;
                 case 'disciplina':
                     require 'cadastro-disciplina.php';
                     break;
-                case 'editar_disciplina':
+                case 'editar-disciplina':
                     require 'editar-disciplina.php';
                     break;
-                case 'salvar_disciplina':
+                case 'salvar-disciplina':
                     require 'salvar-disciplina.php';
                 case 'pesquisar':
                     require 'buscar.php';
@@ -92,13 +93,24 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                      <?php
                         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                         ?>
-
-                        <form method="post" action="?page=pesquisar">
-                            <input type="text" name="busca" placeholder="Pesquisar por nome, sobrenome ou CPF">
-                            <button type="submit">Pesquisar</button>
-                        </form>
-                        <a href="?page=cadastro_professor"> <button class='btn float-sm-end' style="background-color: #4C5D73; color: white; margin: 10px;">Adicionar Professor</button> </a>
-                        <H1>Professores </H1>
+                        <div class="index-div-principal">
+                            <div class="index-div-title">
+                                <p>Professores</p>
+                            </div>
+                        </div>
+                        <div class="tableProf">
+                            <!-- Button trigger modal -->
+                            <form method="post" action="?page=pesquisar" class="formCadastro">
+                                <input type="text" name="busca" placeholder="Pesquisar por nome, sobrenome ou CPF">
+                                <center>
+                                    <button class="Pesquisar" type="submit">Pesquisar</button>
+                                </center>
+                            </form>
+                            <a href="?page=cadastro-professor">
+                                <button type="button" class="AddProf" data-bs-toggle="modal" data-bs-target="#exampleModal">  Adicionar Professor
+                                </button>
+                            </a>
+                            
                         <?php
 
                         // Define a quantidade de registros por página
@@ -133,7 +145,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                                     echo "<td>" . htmlspecialchars($row->sobrenome) . "</td>";
 
                                     echo "<td>";
-                                    echo "<button onclick=\"location.href='?page=visualizar_professor&id={$row->id_professor}'\" class='btn btn-success'>Visualizar</button>";
+                                    echo "<button onclick=\"location.href='?page=visualizar-professor&id={$row->id_professor}'\" class='btn btn-success'>Visualizar</button>";
 
                                     echo "</td>";
 
@@ -153,19 +165,20 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                                 // Define o número máximo de links a serem exibidos
                                 $maximo_link = 5; // Ajuste conforme sua preferência
 
-                                echo "<div class='pagination'>";
+                                echo "<div class='pagination' style='float: right'>";
 
                                 if ($qnt_pagina > 1) {
-                                    echo "<a href='?pag_professor=1'>Primeira</a> ";
+                                    echo "<a class='Primeira' style='margin-right: 10px;' href='?pag_professor=1'>Primeira</a> ";
 
                                     for ($pagina_anterior = max(1, $pagina - $maximo_link); $pagina_anterior < $pagina; $pagina_anterior++) {
                                         echo "<a href='?pag_professor=$pagina_anterior'>$pagina_anterior</a> ";
                                     }
-                                    echo "$pagina ";
+                                    echo "<p>$pagina</p>";
                                     for ($proxima_pagina = $pagina + 1; $proxima_pagina <= min($pagina + $maximo_link, $qnt_pagina); $proxima_pagina++) {
+                                        // echo "<p style='margin-left: 10px;'></p>";
                                         echo "<a href='?pag_professor=$proxima_pagina'>$proxima_pagina</a> ";
                                     }
-                                    echo "<a href='?pag_professor=$qnt_pagina'>Última</a> ";
+                                    echo "<a class='Primeira' style='margin-left: 10px;' href='?pag_professor=$qnt_pagina'>Última</a> ";
                                 }
 
                                 echo "</div>";

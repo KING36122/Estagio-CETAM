@@ -26,9 +26,9 @@ while($row = $res->fetch_object()){
 
     print "<td>
     
-    <button onclick=\"location.href='?page=editar_professor&id=".$row->cpf."'\" class='btn btn-success'>Editar</button>
+    <button onclick=\"location.href='?page=editar-professor&id=".$row->cpf."'\" class='btn btn-success'>Editar</button>
     
-    <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_professor&acao=excluir&id=".$row->cpf."'}else{false;}\" class='btn btn-danger'>Excluir</button>
+    <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-professor&acao=excluir&id=".$row->cpf."'}else{false;}\" class='btn btn-danger'>Excluir</button>
     
     </td>";
     print "</tr>";

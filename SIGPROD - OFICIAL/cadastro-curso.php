@@ -1,5 +1,10 @@
-<h1>Novo Curso</h1>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="index-div-principal">
+    <div class="index-div-title">
+        <p>Cursos</p>
+    </div>
+</div>
+<div class="tableProf">
+<button class="AddProf" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Adicionar Curso
 </button>
 
@@ -8,12 +13,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Turno</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Curso</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="?page=salvar_curso" method="post">
+                <form action="?page=salvar-curso" method="post">
                     <input type="hidden" name="acao" value="cadastrar">
 
                     <div class="mb-3">
@@ -33,7 +37,6 @@
         </div>
     </div>
 </div>
-<h1>Lista de Cursos</h1>
 <?php
 require_once("config.php");
 ob_start();
@@ -68,8 +71,8 @@ if ($res) {
             echo "<td>" . htmlspecialchars($row->projeto) . "</td>";
 
             echo "<td>";
-            echo "<button onclick=\"location.href='?page=edt_curso&id=" . $row->curso_id . "'\" class='btn btn-success'>Editar</button>";
-            echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_curso&acao=excluir&id=" . $row->curso_id . "'}\" class='btn btn-danger'>Excluir</button>";
+            echo "<button style='margin-right: 10px' onclick=\"location.href='?page=edt-curso&id=" . $row->curso_id . "'\" class='btn btn-success'>Editar</button>";
+            echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-curso&acao=excluir&id=" . $row->curso_id . "'}\" class='btn btn-danger'>Excluir</button>";
             echo "</td>";
 
             echo "</tr>";

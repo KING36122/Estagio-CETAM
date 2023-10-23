@@ -28,16 +28,17 @@ if (isset($_REQUEST["acao"])) {
 
             if ($res_disc->execute()) {
                 print "<script>alert('Disciplina cadastrada com Sucesso!')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             } else {
                 print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             }
             break;
 
         case 'editar':
             $disc_id = filter_input(INPUT_POST, "disc_id", FILTER_SANITIZE_NUMBER_INT);
             $id_professor = filter_input(INPUT_POST, "id_professor", FILTER_SANITIZE_NUMBER_INT);
+            // var_dump($id_professor);
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             if ($disc_id !== false) {
@@ -57,12 +58,12 @@ if (isset($_REQUEST["acao"])) {
 
                 if ($res->execute()) {
                     print "<script>alert('Alterado com Sucesso')</script>";
-                    print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                    print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
                 } else {
                     // Imprima informações de erro para depuração
                     echo "Erro na execução da consulta SQL: ";
                     var_dump($res->errorInfo());
-                    print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                    print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
                 }
             } else {
                 echo "Erro: disciplina não está definido corretamente.";

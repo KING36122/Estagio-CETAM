@@ -1,4 +1,10 @@
-<H1>Dados Pessoais </H1>
+<div class="index-div-principal">
+    <div class="index-div-title">
+        <p>Dados Pessoais</p>
+    </div>
+</div>
+<br><br>
+<div class="tableProf">
 
 <?php
 include_once 'config.php';
@@ -36,9 +42,9 @@ if (($res) and ($res->rowCount() != 0)) {
     echo "<td>" . $row['sobrenome'] . "</td>";
 
     echo "<td>";
-    echo "<button onclick=\"location.href='?page=editar_professor&id={$row['id_professor']}'\" class='btn btn-success'>Editar</button>";
+    echo "<button style='margin-right: 10px;' onclick=\"location.href='?page=editar-professor&id={$row['id_professor']}'\" class='btn btn-success'>Editar</button>";
 
-    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud_professor&acao=excluir&id=".$row['id_professor']."'}\" class='btn btn-danger'>Excluir</button>";
+    echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=crud-professor&acao=excluir&id=".$row['id_professor']."'}\" class='btn btn-danger'>Excluir</button>";
     echo "</td>";
 
     echo "</tr>";
@@ -47,11 +53,19 @@ if (($res) and ($res->rowCount() != 0)) {
     echo "<p class='alert alert-danger'>Sem resultados!</p>";
 }
 ?>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        </div>
+
+
+<div class="index-div-principal">
+            <div class="index-div-title">
+                <p>Disciplinas Ministradas</p>
+            </div>
+        </div>
+
+        <div class="tableProf">
+        <button type="button" class="AddProf" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Adicionar Disciplina
 </button>
-
-<h1>Disciplinas Ministradas</h1>
 <?php
 include_once 'config.php';
 
@@ -92,16 +106,16 @@ if (($res) and ($res->rowCount() != 0)) {
         echo " <tbody>";
         echo "<tr>";
         echo "<td>" . $row['disciplina'] . "</td>";
-        echo "<td>" . $row['dt_inicial'] = implode("/",array_reverse(explode("-",$row['dt_inicial']))) . "</td>";
-        echo "<td>" . $row['dt_final']= implode("/",array_reverse(explode("-",$row['dt_final']))) . "</td>";
+        echo "<td>" . $row['dt_inicial'] . "</td>";
+        echo "<td>" . $row['dt_final'] . "</td>";
         echo "<td>" . $row['carga_horaria'] . "</td>";
         echo "<td>" . $row['turno'] . "</td>";
         echo "<td>" . $row['nome_curso'] . "</td>";
         echo "<td>" . $row['projeto'] . "</td>";
         echo "<td>";
-        echo "<button onclick=\"location.href='?page=editar_disciplina&id={$row['disc_id']}'\" class='btn btn-success'>Editar</button>";
+        echo "<button style='margin-right: 10px;' onclick=\"location.href='?page=editar-disciplina&id={$row['disc_id']}'\" class='btn btn-success'>Editar</button>";
 
-        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_disciplina&acao=excluir&id={$row['disc_id']}'}else{false;}\" class='btn btn-danger'>Excluir</button>";
+        echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-disciplina&acao=excluir&id={$row['disc_id']}'}else{false;}\" class='btn btn-danger'>Excluir</button>";
 
         echo "</td>";
 
@@ -123,43 +137,38 @@ if (($res) and ($res->rowCount() != 0)) {
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Disciplina</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            
                 <?php
-                require_once("config.php");
-                $id_professor = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+                    require_once("config.php");
+                    $id_professor = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
-                $res = $pdo->query("SELECT * from turno order by turno asc");
-                $dados_turno = $res->fetchAll(PDO::FETCH_ASSOC);
+                    $res = $pdo->query("SELECT * from turno order by turno asc");
+                    $dados_turno = $res->fetchAll(PDO::FETCH_ASSOC);
 
-                $res_curso = $pdo->query("SELECT * from curso order by nome_curso asc");
-                $dados_curso = $res_curso->fetchAll(PDO::FETCH_ASSOC);
+                    $res_curso = $pdo->query("SELECT * from curso order by nome_curso asc");
+                    $dados_curso = $res_curso->fetchAll(PDO::FETCH_ASSOC);
                 ?>
-
-                <form action="?page=salvar_disciplina" method="post">
+            <div class="modal-body">
+                <form action="?page=salvar-disciplina" method="post">
                     <input type="hidden" name="acao" value="cadastrar">
                     <input type="hidden" name="id_professor" value="<?php echo $id_professor; ?>">
 
-                    <h2>Disciplinas Ministradas:</h2>
-
-                    <div id="disciplinas">
-
+                <div id="disciplinas">
+                    <div class="mb-3">
                         <label>Disciplina:</label>
-                        <input type="text" name="disciplina" required>
-
+                        <input type="text" name="disciplina" required class="form-control">
+                    </div>
                         <label>Data de Início:</label>
-                        <input type="date" name="dt_inicial" required>
-
+                        <input type="date" name="dt_inicial" required class="form-control">
+                        <br>
                         <label>Data de Fim:</label>
-                        <input type="date" name="dt_final" required>
-
-
+                        <input type="date" name="dt_final" required class="form-control">
+                        <br>
                         <label">Carga Horária:</label>
-                            <input type="text" name="carga_horaria" required>
-
-                            <label for="turno">Turno:</label>
-
-                            <label for="turno">Turno:</label>
-                            <select name="id_turno" required class="form-control">
+                        <input type="text" name="carga_horaria" required class="form-control">
+                        
+                        <label for="turno">Turno:</label>
+                        <select name="id_turno" required class="form-control">
                                 <?php for ($i = 0; $i < count($dados_turno); $i++) {
                                     $id_turno = $dados_turno[$i]['id_turno'];
                                     $turno = $dados_turno[$i]['turno'];
@@ -182,7 +191,7 @@ if (($res) and ($res->rowCount() != 0)) {
                                 } ?>
                             </select>
                     </div>
-
+<br>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 </form>

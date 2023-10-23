@@ -36,8 +36,8 @@ if ($res) {
             echo "<td>" . htmlspecialchars($row->turno) . "</td>"; 
             echo "<td>";
 
-            echo "<button style='margin-right:10px;' onclick=\"location.href='?page=editar_turno&id={$row->id_turno}'\" class='btn btn-success'>Editar</button>";
-            echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar_turno&acao=excluir&id=" . $row->id_turno . "'}\" class='btn btn-danger'>Excluir</button>";
+            echo "<button style='margin-right:10px;' onclick=\"location.href='?page=editar-turno&id={$row->id_turno}'\" class='btn btn-success'>Editar</button>";
+            echo "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-turno&acao=excluir&id=" . $row->id_turno . "'}\" class='btn btn-danger'>Excluir</button>";
             echo "</td>";
             echo "</tr>";
         }

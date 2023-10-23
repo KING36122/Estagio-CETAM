@@ -1,5 +1,5 @@
 <?php
-	define("TITULO", "SIGPROD");
+	define("TITULO", "SIGPRO");
 	include "cabecalho.php";
 ?>
 

@@ -35,10 +35,10 @@ if (isset($_REQUEST["acao"])) {
 
                 if ($res->execute()) {
                     print "<script>alert('Cadastrado com Sucesso')</script>";
-                    echo "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                    echo "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
                 } else {
                     print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                    echo "<script>location.href=?page=visualizar_professor&id=$id_professor';</script>";
+                    echo "<script>location.href=?page=visualizar-professor&id=$id_professor';</script>";
                 }
             } else {
                 print "<script>alert('Este Registro já está cadastrado! ')</script>";
@@ -72,10 +72,10 @@ if (isset($_REQUEST["acao"])) {
 
             if ($res->execute()) {
                 print "<script>alert('Alterado com Sucesso')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             } else {
                 print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             }
             // }
 
@@ -106,11 +106,11 @@ if (isset($_REQUEST["acao"])) {
                 } catch (PDOException $e) {
                     $pdo->rollBack();
                     echo "<script>alert('Erro ao excluir: " . $e->getMessage() . "');</script>";
-                    echo "<script>location.href= '?page=visualizar_professor&id=$id_professor';</script>";
+                    echo "<script>location.href= '?page=visualizar-professor&id=$id_professor';</script>";
                 }
             } else {
                 echo "<script>alert('Erro: Nenhum usuário encontrado!');</script>";
-                echo "<script>location.href= '?page=visualizar_professor&id=$id_professor';</script>";
+                echo "<script>location.href= '?page=visualizar-professor&id=$id_professor';</script>";
             }
             break;
     }

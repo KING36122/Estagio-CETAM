@@ -389,86 +389,40 @@ div button.CadProf:hover {
   margin-bottom: 30px;
 }
 
+.formCadastro div.info {
+  display: flex;
+}
+
+.formCadastro input.dados {
+  width: 592px;
+}
+
+.formCadastro select.dados {
+  width: 592px;
+}
+
+div button.Pesquisar {
+  /* float: right; */
+  width: 250px;
+  height: 50px;
+  margin: 0 0 30px 0;
+  background: #1f5574;
+  box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #b4c1d5;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+div button.Pesquisar:hover {
+  transform: scale(1.1);
+  background: #1a4761;
+}
+
 section div button.login-button:hover {
   transform: scale(1.1);
-}
-
-section div.res-div-table {
-  justify-content: center;
-  margin-top: 100px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-section div.res-div-table table {
-  border-collapse: collapse; /* Mescla as bordas das células */
-  border-spacing: 0;
-}
-
-section div.res-div-table th {
-  background-color: rgb(180, 193, 213, 1);
-  width: 250px;
-  font-size: 25px;
-}
-
-section div.res-div-table td {
-  width: 250px;
-  font-size: 25px;
-  text-align: center;
-  background-color: rgb(180, 193, 213, 0.3);
-  padding: 5px;
-}
-
-.floating-button {
-  position: fixed;
-  top: 60px;
-  left: 50px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.floating-button-end {
-  position: fixed;
-  top: 60px;
-  right: 50px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.floating-button img {
-  width: 30px;
-  height: 30px;
-}
-
-.floating-button-end img {
-  width: 30px;
-  height: 30px;
-}
-
-button.res-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-  margin-top: 35px;
 }
 
 button:hover {
@@ -479,4 +433,28 @@ button:hover {
 .lista {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.pagination a {
+  text-decoration: none;
+  font-size: 24px;
+  margin: 0 10px 0 10px;
+  color: #1f5574;
+  transition: transform 0.3s ease;
+}
+
+.pagination a:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.pagination p {
+  text-decoration: none;
+  font-size: 24px;
+  margin: 0 10px 0 10px;
+}
+
+.pagination a.Primeira {
+  color: #1f5574;
+  font-weight: bold;
 }

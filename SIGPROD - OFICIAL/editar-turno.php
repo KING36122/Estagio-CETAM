@@ -17,7 +17,7 @@ $row_usuario = $res->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
-<form action="?page=salvar_turno" method="POST" class="formCadastro">
+<form action="?page=salvar-turno" method="POST" class="formCadastro">
     <input type="hidden" name="acao" value="editar">
     <input type="hidden" name="id_turno" value="<?php echo $id_turno; ?>">
 

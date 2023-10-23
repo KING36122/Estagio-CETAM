@@ -1,8 +1,8 @@
 <div class="index-div-principal">
-            <div class="index-div-title">
-                <p>Curso</p>
-            </div>
-        </div>
+    <div class="index-div-title">
+        <p>Curso</p>
+    </div>
+</div>
 
 <?php
 include_once 'config.php';
@@ -22,7 +22,7 @@ if ($curso_id !== false) {
 ?>
 
 
-<form action="?page=salvar_curso" method="post" class="formCadastro">
+<form action="?page=salvar-curso" method="post" class="formCadastro">
 
     <input type="hidden" name="acao" value="editar">
     <input type="hidden" name="curso_id" value="<?php echo $curso_id; ?>">
