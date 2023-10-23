@@ -92,8 +92,8 @@ if (($res) and ($res->rowCount() != 0)) {
         echo " <tbody>";
         echo "<tr>";
         echo "<td>" . $row['disciplina'] . "</td>";
-        echo "<td>" . $row['dt_inicial'] . "</td>";
-        echo "<td>" . $row['dt_final'] . "</td>";
+        echo "<td>" . $row['dt_inicial'] = implode("/",array_reverse(explode("-",$row['dt_inicial']))) . "</td>";
+        echo "<td>" . $row['dt_final']= implode("/",array_reverse(explode("-",$row['dt_final']))) . "</td>";
         echo "<td>" . $row['carga_horaria'] . "</td>";
         echo "<td>" . $row['turno'] . "</td>";
         echo "<td>" . $row['nome_curso'] . "</td>";

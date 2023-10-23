@@ -26,7 +26,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
                         <li class="nav-item"> <a class="nav-link" href="home.php">Início</a></li>
                         <li class="nav-item"> <a class="nav-link" href="home.php?page=turnos">Turnos</a></li>
                         <li class="nav-item"> <a class="nav-link" href="home.php?page=cursos">Cursos</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Meu perfil</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="home.php?page=cadastro_professor">Adicionar Professor</a></li>
                         <li class="nav-item"> <a class="nav-link" href="logout.php?page-logout">Sair</a></li>
                     </ul>
                 </div>
