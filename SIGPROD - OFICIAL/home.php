@@ -183,7 +183,7 @@ if (isset($_SESSION['adm_id']) && !empty($_SESSION['adm_id'])) : ?>
 
                                 echo "</div>";
                             } else {
-                                echo "<p class='alert alert-danger'>Sem resultados!</p>";
+                                echo "<p class='alert alert-danger semRes'>Sem resultados!</p>";
                             }
                         }
                         ?>
