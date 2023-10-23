@@ -135,7 +135,7 @@ if (($res) and ($res->rowCount() != 0)) {
                 $dados_curso = $res_curso->fetchAll(PDO::FETCH_ASSOC);
                 ?>
 
-                <form action="salvar_disciplina" method="post">
+                <form action="?page=salvar_disciplina" method="post">
                     <input type="hidden" name="acao" value="cadastrar">
                     <input type="hidden" name="id_professor" value="<?php echo $id_professor; ?>">
 
