@@ -35,15 +35,17 @@ if (isset($_REQUEST["acao"])) {
 
                 if ($res->execute()) {
                     print "<script>alert('Cadastrado com Sucesso')</script>";
-                    print "<script>location.href='home.php';</script>";
+                    echo "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
                 } else {
                     print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                    print "<script>location.href='home.php';</script>";
+                    echo "<script>location.href=?page=visualizar-professor&id=$id_professor';</script>";
                 }
             } else {
-                echo "Este Registro já está cadastrado!";
+                print "<script>alert('Este Registro já está cadastrado! ')</script>";
+          
+                print "<script>location.href='home.php';</script>";
             }
-            print "<script>location.href='home.php';</script>";
+           
             exit();
             break;
 
@@ -70,17 +72,17 @@ if (isset($_REQUEST["acao"])) {
 
             if ($res->execute()) {
                 print "<script>alert('Alterado com Sucesso')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             } else {
                 print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                print "<script>location.href='?page=visualizar_professor&id=$id_professor';</script>";
+                print "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
             }
             // }
 
             break;
         case 'excluir':
             $id_professor= filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-            var_dump($id_professor);
+          
             var_dump($_GET);
             if (!empty($id_professor)) {
                 try {
@@ -100,15 +102,15 @@ if (isset($_REQUEST["acao"])) {
             
                     $pdo->commit();
                     echo "<script>alert('Usuário excluído com sucesso!');</script>";
-                    // echo "<script>location.href= '?page=home.php';</script>";
+                    echo "<script>location.href= '?page=home.php';</script>";
                 } catch (PDOException $e) {
                     $pdo->rollBack();
                     echo "<script>alert('Erro ao excluir: " . $e->getMessage() . "');</script>";
-                    // echo "<script>location.href= '?page=visualizar_professor&id=$id_professor';</script>";
+                    echo "<script>location.href= '?page=visualizar-professor&id=$id_professor';</script>";
                 }
             } else {
                 echo "<script>alert('Erro: Nenhum usuário encontrado!');</script>";
-                // echo "<script>location.href= '?page=visualizar_professor&id=$id_professor';</script>";
+                echo "<script>location.href= '?page=visualizar-professor&id=$id_professor';</script>";
             }
             break;
     }

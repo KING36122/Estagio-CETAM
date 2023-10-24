@@ -11,7 +11,11 @@ if (isset($_REQUEST["acao"])) {
             $res_prof = $pdo->query("select * from professor where cpf = '$cpf'");
             $dados_prof = $res_prof->fetchAll(PDO::FETCH_ASSOC);
             $linhas = count($dados_prof);
-            if ($linhas == 0) {
+
+            if ( $dados['dt_inicial'] > $dados['dt_final']) {
+                print "<script>alert('A data inicial não pode ser posterior à data final.')</script>";
+                print "<script>location.href='?page=cadastro-professor';</script>";
+            } elseif ($linhas == 0) {
 
                 $res = $pdo->prepare("INSERT into professor (cpf,nome, sobrenome, rg) values (:cpf, :nome, :sobrenome, :rg) ");
                 $res->bindValue(":cpf", $dados['cpf']);
@@ -31,21 +35,21 @@ if (isset($_REQUEST["acao"])) {
                 $res_disc->bindValue(":id_professor", $id_professor);
                 $res_disc->bindValue(":id_turno", $dados['id_turno']);
                 $res_disc->bindValue(":curso_id",  $dados['curso_id']);
-                $res_disc->execute();
+              
 
-                if ($res->execute()) {
+                if ($res_disc->execute()) {
+                  
                     print "<script>alert('Cadastrado com Sucesso')</script>";
-                    echo "<script>location.href='?page=visualizar-professor&id=$id_professor';</script>";
+                    print "<script>location.href='home.php';</script>";
                 } else {
                     print "<script>alert('Erro na execução da consulta SQL: " . print_r($res->errorInfo(), true) . "')</script>";
-                    echo "<script>location.href=?page=visualizar-professor&id=$id_professor';</script>";
+                    print "<script>location.href='home.php';</script>";
                 }
             } else {
-                print "<script>alert('Este Registro já está cadastrado! ')</script>";
-          
+                print "<script>alert('Este Registro já está cadastrado')</script>";
                 print "<script>location.href='home.php';</script>";
             }
-           
+          
             exit();
             break;
 
@@ -82,7 +86,7 @@ if (isset($_REQUEST["acao"])) {
             break;
         case 'excluir':
             $id_professor= filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-          
+            var_dump($id_professor);
             var_dump($_GET);
             if (!empty($id_professor)) {
                 try {

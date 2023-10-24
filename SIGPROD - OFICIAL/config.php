@@ -9,12 +9,6 @@
     $pass = '';
     $base = 'sigpro_cetam';
 
-    //VALORES PARA A COMBOBOX DE PAGINAÇÃO
-$opcao1 = 3;
-$opcao2 = 5;
-$opcao3 = 10;
-
-
     global $pdo;
 
     try{
